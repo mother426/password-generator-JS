@@ -1,12 +1,7 @@
-// Elements containing a value or an event defined as constants 
+// Global DOM Elements 
 const generateBtn = document.getElementById("generate");
 const characterSliderRange = document.getElementById('characterSliderRange');
 const characterNumberRange = document.getElementById('characterNumberRange');
-const passwordTextField = document.getElementById('generatedPassword');
-const uppercaseCheckElement = document.getElementById('includesUpperCase');
-const lowercaseCheckElement = document.getElementById('includesLowerCase');
-const numberCheckElement = document.getElementById('includesNumbers');
-const symbolCheckElement = document.getElementById('includesSpecial');
 
 // Arrays of letters, numbers and symbols created by the createArray function stored into constants using their ASCII code 
 // ASCII table reference provided by http://www.asciitable.com/
@@ -27,21 +22,32 @@ function createArray(min, max) {
 characterNumberRange.addEventListener('input', changeSliderNumber);
 characterSliderRange.addEventListener('input', changeSliderNumber);
 // defines changeSliderNumber function, synchronizes the slider and number display by setting both to a constant called sliderValue
+// target event property selects the element that triggered specific DOM event, in this case, adjusting the slider value.  
 function changeSliderNumber(slide) {
     const sliderValue = slide.target.value;
     characterNumberRange.value = sliderValue;
     characterSliderRange.value = sliderValue;
 }
 // Event Listener for Generate Password Button
+// Researched arrow function syntax to shorthand the function called when the generateBtn element is clicked
+// parseInt allows characterNumberRange's type to be a number instead of a string
+// Finalized password joins randomly selected indexes in the available array of characters 
+// Randomly joined password is logged into the textarea containing final password 
 generateBtn.addEventListener("click", () => {
     let numberOfChars = parseInt(characterNumberRange.value, 10);
     let finalizedPassword = generatePassword(numberOfChars);
+    document.getElementById('generatedPassword').value = finalizedPassword; 
     console.log('finalPassword: ', finalizedPassword);
 });
 
-// Created function called when generateBtn is clicked. generatePassword takes argument numberOfChars, which is equal to the value of characterNumberRange converted to a number
+// Created function called when generateBtn is clicked. generatePassword takes argument numberOfChars, defined as parseInt(characterNumberRange.value)
+// if statements check to see which character arrays are to be added
 function generatePassword(numberOfChars) {
     let characterCodes = [];
+    const uppercaseCheckElement = document.getElementById('includesUpperCase');
+    const lowercaseCheckElement = document.getElementById('includesLowerCase');
+    const numberCheckElement = document.getElementById('includesNumbers');
+    const symbolCheckElement = document.getElementById('includesSpecial');
     if (!uppercaseCheckElement.checked && !lowercaseCheckElement.checked && !numberCheckElement.checked && !symbolCheckElement.checked) {
         alert("Please check at least one")
     }
@@ -65,42 +71,3 @@ function generatePassword(numberOfChars) {
     }
     return randomizedPassword.join("");
 };
-
-// Write password to the #password input
-// function writePassword() {
-//   const numberOfChars = +characterNumberRange.value; 
-//   const upperChecked = uppercaseCheckElement.checked;
-//   const lowerChecked = lowercaseCheckElement.checked;
-//   const numbersChecked = numberCheckElement.checked;
-//   const symbolChecked = symbolCheckElement.checked;
-//   console.log(numberOfChars, upperChecked, lowerChecked, numbersChecked, symbolChecked);
-// }
-
-// Constant object created with random character generation functions as its attributes 
-// const randomGeneratedPass = {
-//   upperCase: randomUpperCase,
-//   upperCase: randomLowerCase,
-//   numbers: randomNumber,
-//   symbols: randomSymbol
-// };
-
-// // Returns a random uppercase letter using ASCII codes
-// function randomUpperCase() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-// }
-// console.log(randomUpperCase());
-// // Returns a random lowercase letter using ASCII codes 
-// function randomLowerCase() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
-// console.log(randomLowerCase());
-// // Returns a random number 0-9 using ASCII codes 
-// function randomNumber() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
-// console.log(randomNumber());
-// // Returns a random symbol using ASCII codes
-// function randomSymbol() {
-//   return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
-// }
-// console.log(randomSymbol());
