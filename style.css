@@ -17,6 +17,12 @@ body {
   background-color: #f9fbfd;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
@@ -97,7 +103,7 @@ button[disabled] {
   float: right;
 }
 
-#password {
+#generatedPassword {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -125,7 +131,7 @@ button[disabled] {
     padding: 10px 15px;
   }
 
-  #password {
+  #generatedPassword {
     font-size: 1rem;
   }
 }
@@ -135,3 +141,4 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
