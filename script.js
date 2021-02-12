@@ -3,8 +3,8 @@ const generateBtn = document.getElementById("generate");
 const characterSliderRange = document.getElementById('characterSliderRange');
 const characterNumberRange = document.getElementById('characterNumberRange');
 
-// Arrays created referring to the characters charCodes 
-// ASCII table/charCode reference provided by http://www.asciitable.com/
+// Arrays created of the character's character codes  
+// ASCII table/character code reference provided by http://www.asciitable.com/
 const uppercaseArray = createArray(65, 90);
 const lowercaseArray = createArray(97, 122);
 const numberArray = createArray(48, 57);
@@ -32,12 +32,11 @@ function changeSliderNumber(slide) {
 };
 
 // Event Listener for Generate Password Button
-// Researched arrow function syntax to shorthand the function that is called when the generateBtn element is clicked
 // parseInt allows characterNumberRange's type to be a number instead of a string
 // Finalized password set to the value of the generatePassword with numberOfChars as an argument 
 // Randomly joined password is logged into the textarea containing final password 
-generateBtn.addEventListener("click", () => {
-    let numberOfChars = parseInt(characterNumberRange.value, 10);
+generateBtn.addEventListener("click", function() {
+    let numberOfChars = parseInt(characterNumberRange.value);
     let finalizedPassword = generatePassword(numberOfChars);
     document.getElementById('generatedPassword').value = finalizedPassword; 
 });
