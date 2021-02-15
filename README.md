@@ -5,10 +5,10 @@ The goal behind this project was to program a password generator inside of a web
 ![Password Generator GUI](/assets/passwordgeneratorsite.png)
 
 The function that generates the password will take inputs from the GUI as arguments. For example in the figure above, the paramaters are set to:
-51 characters
-uppercase - false
-lowercase - true
-numbers - false
+51 characters |
+uppercase - false |
+lowercase - true |
+numbers - false |
 symbols - false 
 
 The function then generates a password containing randomly selected characters in the arrays that are selected 'TRUE'.
