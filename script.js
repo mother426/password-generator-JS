@@ -42,7 +42,7 @@ generateBtn.addEventListener("click", function() {
 });
 
 // Created function called when generateBtn is clicked. generatePassword takes argument numberOfChars, defined as parseInt(characterNumberRange.value)
-// First if alerts user to check at least one box if no boxes are checked 
+// First if-statement alerts user to check at least one box if no boxes are checked 
 // If statements check to see which character arrays are to be added
 // Password to be generated stored as a new array. 
 // For loop iterates through available arrays (can tell if available through if(...checked))
@@ -55,7 +55,7 @@ function generatePassword(numberOfChars) {
     const numberCheckElement = document.getElementById('includesNumbers');
     const symbolCheckElement = document.getElementById('includesSpecial');
     if (!uppercaseCheckElement.checked && !lowercaseCheckElement.checked && !numberCheckElement.checked && !symbolCheckElement.checked) {
-        alert("Please check at least one")
+        alert("Please check at least one");
     }
     if (uppercaseCheckElement.checked) {
         characterCodes = characterCodes.concat(uppercaseArray);
