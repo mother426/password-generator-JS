@@ -1,10 +1,10 @@
 # JS Password Generator 
 
-The goal behind this project was to program a password generator inside of a web broswer using Javascript. The project acceptance criteria instructed to allow the user to set password parameters (password length, inclusion of capital or lowercase letters, numbers and symbols) through javascript prompts. I opted instead to code a GUI that sets password generators parameters. 
+The goal behind this project was to program a web-browser based password generator using Javascript. The project acceptance criteria instructed to allow the user to set password parameters (password length, inclusion of capital or lowercase letters, numbers and symbols) through javascript prompts. I opted instead to code a GUI that sets password generators parameters. 
 
 ![Password Generator GUI](/assets/passwordgeneratorsite.png)
 
-The function that generates the password will take inputs from the GUI as arguments. For example in the figure above, the paramaters are set to:
+The function that generates the password takes inputs from the GUI as arguments. For example in the figure above, the paramaters are set to:
 51 characters |
 uppercase - false |
 lowercase - true |
